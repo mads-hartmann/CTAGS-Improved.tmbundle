@@ -20,7 +20,7 @@ jump to the definition of that symbol.
 ## Adding suport for other languages
 
 The bundle is able to index any language that is supported by CTAGS by default. If you want to support other languages
-you will have to add the proper definitions to your ~/.ctags file. See how to do so [here]("http://ctags.sourceforge.net/EXTENDING.html")
+you will have to add the proper definitions to your ~/.ctags file. See how to do so [here](http://ctags.sourceforge.net/EXTENDING.html "here")
 
 EOF
 </string>

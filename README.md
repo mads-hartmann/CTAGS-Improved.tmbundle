@@ -5,7 +5,7 @@ Improved CTAGS bundle for TextMate.
 
 Current features: 
 
-- Jump to definition of anything (defined in your project). If multiple definitions exist you will have to select the proper file from a menu.
+- ⎇. : Jump to definition of anything selected/under the cursor (defined in your project). If multiple definitions exist you will have to select the proper file from a menu.
 
 Still missing:
 
@@ -14,7 +14,7 @@ Still missing:
 Requirements
 ------------
 
-You will need a version of CTAGS that doesn't ship with OS X. I got mine from [sourceforge]("http://ctags.sourceforge.net").
+You will need a version of CTAGS that doesn't ship with OS X. I got mine from [sourceforge](http://ctags.sourceforge.net "ctags").
  
 Set the shell variable to point to your CTAGS installation, if you don't do so TextMate will ask you politely with instructions on how to do so. 
 
