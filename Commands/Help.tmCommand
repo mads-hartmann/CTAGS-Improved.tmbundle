@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+html_header "CTAGS Improved Help" "CTAGS"
+
+"$TM_SUPPORT_PATH/lib/markdown_to_help.rb" &lt;&lt;'EOF'
+
+#CTAGS Improved
+
+## Usage
+
+Create a TAGS file by running the 'Create TAGS file' command. Now place the cursor at any symbol you like and hit ⎇. to
+jump to the definition of that symbol.
+
+## Adding suport for other languages
+
+The bundle is able to index any language that is supported by CTAGS by default. If you want to support other languages
+you will have to add the proper definitions to your ~/.ctags file. See how to do so [here]("http://ctags.sourceforge.net/EXTENDING.html")
+
+EOF
+</string>
+	<key>input</key>
+	<string>none</string>
+	<key>name</key>
+	<string>Help</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>uuid</key>
+	<string>2C8F0689-0F10-4256-8C60-96FC0C0464A3</string>
+</dict>
+</plist>
