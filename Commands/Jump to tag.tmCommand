@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>nop</string>
+	<key>command</key>
+	<string>#!/usr/bin/env ruby -wKU
+
+require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
+
+project = ENV['TM_PROJECT_DIRECTORY']
+tags    = project+"/TAGS"
+word    = ENV['TM_SELECTED_TEXT'] || ENV['TM_CURRENT_WORD']
+
+if File.exist?(tags)
+  if word
+    results = `cat #{tags} | grep #{word}`.split("\n").find_all { |x| x.split("\t").first == word }
+
+    if results.size == 1 
+      values = results[0].split("\t")
+      path = project+"/"+values[1]
+      line = values[2].gsub(";\"","")
+      `mate #{path} -l #{line}`
+    else 
+      items = results.collect { |x| 
+        values = x.split("\t")
+        { 'title' =&gt; values[1],
+          'path'  =&gt; values[1],
+          'line'  =&gt; values[2]
+        }
+      }
+
+      chosen = TextMate::UI.menu(items)
+
+      if chosen 
+        path = project +"/" + chosen['path']
+        line = chosen['line'].gsub(";\"","")
+        `mate #{path} -l #{line}`
+      else 
+        puts "Aborted"
+      end
+    end
+  else 
+    puts "Place the cursor at a word or select some text"
+  end
+else 
+  puts "No TAGS file. Please create one using the 'Create TAGS file' command"
+end</string>
+	<key>fallbackInput</key>
+	<string>word</string>
+	<key>input</key>
+	<string>selection</string>
+	<key>keyEquivalent</key>
+	<string>~.</string>
+	<key>name</key>
+	<string>Jump to tag</string>
+	<key>output</key>
+	<string>showAsTooltip</string>
+	<key>scope</key>
+	<string>source</string>
+	<key>uuid</key>
+	<string>7FA78A1E-B63E-4BBA-BC24-0D78261037B6</string>
+</dict>
+</plist>
