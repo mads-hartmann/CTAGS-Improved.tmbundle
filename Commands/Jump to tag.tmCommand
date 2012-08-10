@@ -35,7 +35,7 @@ if File.exist?(tags)
       chosen = TextMate::UI.menu(items)
 
       if chosen 
-        path = project +"/" + chosen['path']
+        path = "#{project}/#{chosen['path']}" # project +"/" + chosen['path']
         line = chosen['line'].gsub(";\"","")
         `mate #{path} -l #{line}`
       else 
@@ -52,15 +52,23 @@ end</string>
 	<string>word</string>
 	<key>input</key>
 	<string>selection</string>
+	<key>inputFormat</key>
+	<string>text</string>
 	<key>keyEquivalent</key>
 	<string>~.</string>
 	<key>name</key>
 	<string>Jump to tag</string>
-	<key>output</key>
-	<string>showAsTooltip</string>
+	<key>outputCaret</key>
+	<string>afterOutput</string>
+	<key>outputFormat</key>
+	<string>text</string>
+	<key>outputLocation</key>
+	<string>toolTip</string>
 	<key>scope</key>
 	<string>source</string>
 	<key>uuid</key>
 	<string>7FA78A1E-B63E-4BBA-BC24-0D78261037B6</string>
+	<key>version</key>
+	<integer>2</integer>
 </dict>
 </plist>
