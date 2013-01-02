@@ -10,7 +10,8 @@
 require ENV['TM_SUPPORT_PATH'] + '/lib/ui.rb'
 
 project = ENV['TM_PROJECT_DIRECTORY']
-tags    = project+"/TAGS"
+tagfile = ENV['CTAGS_FILE'] || "TAGS"
+tags    = project+"/"+tagfile
 word    = ENV['TM_SELECTED_TEXT'] || ENV['TM_CURRENT_WORD']
 
 if File.exist?(tags)
@@ -47,7 +48,8 @@ if File.exist?(tags)
   end
 else 
   puts "No TAGS file. Please create one using the 'Create TAGS file' command"
-end</string>
+end
+</string>
 	<key>fallbackInput</key>
 	<string>word</string>
 	<key>input</key>
@@ -69,6 +71,6 @@ end</string>
 	<key>uuid</key>
 	<string>7FA78A1E-B63E-4BBA-BC24-0D78261037B6</string>
 	<key>version</key>
-	<integer>2</integer>
+	<string>2</string>
 </dict>
 </plist>
