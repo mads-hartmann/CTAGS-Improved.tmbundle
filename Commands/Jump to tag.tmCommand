@@ -18,7 +18,7 @@ if File.exist?(tags)
   if word
     results = `cat #{tags} | grep #{word}`.split("\n").find_all { |x| x.split("\t").first == word }
     if results.size == 0 
-      puts "Sorry, no matches found for '#{word}'.\nPerhaps you should update your TAGS file by running 'Crate TAGS file'"
+      puts "Sorry, no matches found for '#{word}'.\nPerhaps you should update your TAGS file by running 'Create TAGS file'"
     elsif results.size == 1 
       values = results[0].split("\t")
       path = project+"/"+values[1]
